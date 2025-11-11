@@ -27,15 +27,19 @@ Built using **Java Servlets**, **JSP**, and **XML** for data persistence, featur
 
 ## ✨ Features implemented
 
-* **🔐 Secure Authentication:** Session-based login system preventing unauthorized access to internal pages.
-* **📚 Live Course Catalog:** Displays course details (Instructor, Credits) and **real-time seat availability**.
+* **🔐 Secure Authentication:** Session-based login system (`HttpSession`) with password change functionality.
+* **🚪 Logout:** Securely invalidates the user session.
+* **📚 Live Course Catalog:** Displays course details and **real-time seat availability** from the MySQL database.
 * **✅ Transactional Enrollment:**
-    * Prevents over-enrollment (students cannot join if seats are 0).
-    * **Concurrency Safety:** Uses `synchronized` methods to ensure seat counts are accurate even if multiple students click "Enroll" simultaneously.
+    * Prevents over-enrollment.
+    * Uses SQL `UPDATE...WHERE remainingSeats > 0` for atomic seat management.
+    * Manages relationships using a dedicated `enrollments` table.
 * **📅 Personal Timetable:** Automatically generates a weekly schedule based on enrolled courses.
-* **📊 Grade Portal:** Students can view their academic history and letter grades.
+* **📊 Grade Portal:** Students can view their academic history from the `grades` table.
+* **👤 Profile Management:** Students can view their information and update their password.
 * **📱 Responsive Design:** Fully responsive UI using **Bootstrap 5**, accessible on mobile and desktop.
-* **💾 XML Persistence:** Custom **DAO (Data Access Object)** layer using **JAXB** to store all data in local XML files (No SQL database required).
+* **💾 MySQL Database:** All data is stored in a relational MySQL database. The **DAO (Data Access Object)** layer uses **JDBC** to perform all SQL operations.
+
 
 ---
 
@@ -103,8 +107,9 @@ This project reads data from a specific folder on your hard drive.
 
 ## 👥 Contributors
 
-* **Ravi Shankar** (23BCS11920)
+* **Rishu** 
 
 ---
 
 _Developed for the Bachelor of Engineering Project at Chandigarh University._
+
