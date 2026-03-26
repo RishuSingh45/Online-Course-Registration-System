@@ -105,10 +105,6 @@ This project reads data from a specific folder on your hard drive.
 
 ---
 
-## 👥 Contributors
-
-* **Rishu** 
-
 ---
 
 _Developed for the Bachelor of Engineering Project at Chandigarh University._
